@@ -11,6 +11,9 @@
 <!-- Font Awesome for Icons -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
+<!-- AOS Library for Scroll Animations -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
 <style>
 /* BASE RESET */
 * {
@@ -22,8 +25,8 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #fff;
     scroll-behavior: smooth;
+    background-color: #fff;
 }
 
 /* HEADER */
@@ -48,13 +51,14 @@ nav a {
     margin-left: 24px;
     text-decoration: none;
     font-weight: 500;
+    position: relative;
     transition: color 0.3s;
 }
 nav a:hover {
     color: #82b1ff;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
     background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=90') center/cover no-repeat;
     color: white;
@@ -64,7 +68,7 @@ nav a:hover {
 }
 .hero-text {
     display: inline-block;
-    background: rgba(0,0,0,0.3); /* light overlay for readability */
+    background: rgba(0,0,0,0.35); /* light overlay for readability */
     padding: 30px 40px;
     border-radius: 10px;
 }
@@ -81,23 +85,32 @@ nav a:hover {
     display: inline-block;
     padding: 14px 40px;
     font-weight: 600;
-    background-color: #0a4da2;
-    color: white;
+    background-color: #ffd600;
+    color: #0a4da2;
     text-decoration: none;
     border-radius: 6px;
-    transition: background 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 .btn-primary:hover {
-    background-color: #083f82;
+    background-color: #e6c200;
+    color: #000;
 }
 
-/* MAIN SECTION STYLES */
+/* SECTIONS */
 section {
     padding: 80px 50px;
     max-width: 1200px;
     margin: auto;
     scroll-margin-top: 100px;
+    opacity: 0; /* for fade-in animation */
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 h2.section-title {
     font-size: 32px;
     color: #0a4da2;
@@ -105,13 +118,7 @@ h2.section-title {
     font-weight: 700;
 }
 
-/* ABOUT */
-#about p {
-    max-width: 850px;
-    margin-top: 10px;
-}
-
-/* GRID CARDS (PRODUCTS) */
+/* GRID CARDS */
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -138,11 +145,6 @@ h2.section-title {
     margin-top: 12px;
     font-weight: 600;
     color: #0a4da2;
-}
-
-/* SIMPLE PARAGRAPH SECTION */
-.section-text {
-    max-width: 900px;
 }
 
 /* CONTACT */
@@ -179,7 +181,7 @@ footer {
     font-size: 14px;
 }
 
-/* MOBILE RESPONSIVENESS */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     section { padding: 60px 20px; }
     .hero h1 { font-size: 36px; }
@@ -206,14 +208,14 @@ footer {
 <section class="hero">
     <div class="hero-text">
         <h1>Structured International Medical Trade Solutions</h1>
-        <p>GlobalMed Trade delivers compliance‑aligned medical equipment distribution, sustainable deployment, and institutional logistics globally.</p>
+        <p>GlobalMed Trade delivers compliance‑aligned medical equipment distribution and institutional logistics worldwide.</p>
         <a href="#contact" class="btn-primary">Request Inquiry</a>
     </div>
 </section>
 
 <section id="about">
     <h2 class="section-title">About Us</h2>
-    <p class="section-text">GlobalMed Trade partners with healthcare institutions for compliant, long‑term medical equipment deployment and ongoing support across regulated markets worldwide.</p>
+    <p>GlobalMed Trade partners with healthcare institutions for compliant, long‑term medical equipment deployment and ongoing support across regulated markets worldwide.</p>
 </section>
 
 <section id="products">
@@ -239,12 +241,12 @@ footer {
 
 <section id="compliance">
     <h2 class="section-title">Compliance</h2>
-    <p class="section-text">All products distributed comply with FDA, CE, and other international medical standards, ensuring safe and traceable deployment pathways.</p>
+    <p>All products distributed comply with FDA, CE, and other international medical standards, ensuring safe and traceable deployment pathways.</p>
 </section>
 
 <section id="logistics">
     <h2 class="section-title">Global Logistics</h2>
-    <p class="section-text">We coordinate cross‑border documentation, fulfillment, and supply chain operations to meet institutional requirements.</p>
+    <p>We coordinate cross‑border documentation, fulfillment, and supply chain operations to meet institutional requirements.</p>
 </section>
 
 <section id="contact">
@@ -261,5 +263,19 @@ footer {
     © 2026 GlobalMed Trade. All Rights Reserved.
 </footer>
 
+<!-- Scroll animation script -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+});
+</script>
 </body>
 </html>
