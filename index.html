@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlobalMed Trade | International Medical Equipment</title>
-
     <style>
-        /* BASIC STYLES */
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background-color: #f5f7fa;
             color: #333;
-            scroll-behavior: smooth; /* smooth scroll for internal links */
+            scroll-behavior: smooth;
         }
 
-        /* HEADER */
         header {
             background-color: #0b5ed7;
             color: white;
@@ -33,24 +30,12 @@
             margin-left: 20px;
             text-decoration: none;
             font-weight: bold;
-            position: relative;
         }
 
-        /* underline animation for nav links */
-        nav a::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s;
+        nav a:hover {
+            text-decoration: underline;
         }
 
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* HERO SECTION */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
                         url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3') center/cover;
@@ -79,22 +64,105 @@
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
+            transition: background 0.3s;
         }
 
         .btn:hover {
             background: #084298;
-            transform: translateY(-2px);
         }
 
-        /* SECTIONS */
         section {
             padding: 60px 40px;
             max-width: 1200px;
             margin: auto;
-            scroll-margin-top: 120px; /* fixes header overlapping */
+            scroll-margin-top: 120px; /* fixes sticky header overlap */
         }
 
-        /* Alternating backgrounds */
-        #about, #trade {
-            background-color: #
+        h2 {
+            color: #0b5ed7;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #0b5ed7;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background-color: #0b5ed7;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h2>GlobalMed Trade</h2>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#trade">Global Trade</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>International Medical Equipment Trading Company</h1>
+    <p>Supplying certified medical equipment and hospital supplies to healthcare providers worldwide.</p>
+    <a href="#contact" class="btn">Request a Quote</a>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>GlobalMed Trade is an international medical equipment trading company specializing in sourcing, exporting, and distributing advanced medical devices and hospital supplies. We connect manufacturers with healthcare providers across global markets.</p>
+</section>
+
+<section id="products">
+    <h2>Our Products</h2>
+    <div class="services">
+        <div class="card">
+            <h3>Diagnostic Equipment</h3>
+            <p>X-ray machines, ultrasound systems, patient monitors.</p>
+        </div>
+        <div class="card">
+            <h3>Surgical Instruments</h3>
+            <p>Precision tools and operating room equipment.</p>
+        </div>
+        <div class="card">
+            <h3>Hospital Supplies</h3>
+            <p>Beds, sterilization units, consumables, and PPE.</p>
+        </div>
+    </div>
+</section>
+
+<section id="trade">
+    <h2>Global Trade Network</h2>
+    <p>We operate across Asia, Europe, the Middle East, Africa, and the Americas, ensuring compliance with international medical standards and regulations.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@globalmedtrade.com</p>
+    <p>Phone: +1 (000) 123-4567</p>
+    <p>Address: International Trade Center, Global City</p>
+    <a href="mailto:info@globalmedtrade.com" class="btn">Email Us Now</a>
+</section>
