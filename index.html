@@ -8,15 +8,20 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
+<!-- Font Awesome for Icons -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <style>
-/* Reset & Base */
+/* RESET & BASE */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; background: #f9fafc; color: #333; }
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    scroll-behavior: smooth;
+    background-color: #fff;
+}
 
-/* Header */
+/* HEADER */
 header {
     background-color: #0a4da2;
     color: white;
@@ -33,29 +38,22 @@ header h1 { font-size: 24px; font-weight: 700; }
 nav a { color: white; margin-left: 24px; text-decoration: none; font-weight: 500; transition: color 0.3s; }
 nav a:hover { color: #82b1ff; }
 
-/* Hero */
+/* HERO */
 .hero {
     background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=90') center/cover no-repeat;
+    background-size: cover;
     color: white;
     padding: 160px 20px 140px;
     text-align: center;
-    position: relative;
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    top:0; left:0; right:0; bottom:0;
-    background: rgba(0,0,0,0.3); /* overlay for text readability */
-    z-index: 1;
 }
 .hero-text {
-    position: relative;
-    z-index: 2;
     display: inline-block;
-    max-width: 700px;
+    background: rgba(0,0,0,0.3);
+    padding: 30px 40px;
+    border-radius: 10px;
 }
 .hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 20px; }
-.hero p { font-size: 20px; margin-bottom: 30px; }
+.hero p { font-size: 20px; margin-bottom: 40px; }
 .btn-primary {
     display: inline-block;
     padding: 14px 40px;
@@ -68,18 +66,20 @@ nav a:hover { color: #82b1ff; }
 }
 .btn-primary:hover { background-color: #e6c200; color: #000; }
 
-/* Sections */
+/* SECTIONS */
 section {
     padding: 80px 50px;
     max-width: 1200px;
     margin: auto;
-    scroll-margin-top: 120px;
+    scroll-margin-top: 100px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-h2.section-title {
-    font-size: 32px; color: #0a4da2; margin-bottom: 28px; font-weight: 700;
-}
+section.show { opacity: 1; transform: translateY(0); }
+h2.section-title { font-size: 32px; color: #0a4da2; margin-bottom: 28px; font-weight: 700; }
 
-/* Product Cards */
+/* IMAGE CARDS */
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -104,10 +104,13 @@ h2.section-title {
     border-top-right-radius: 10px;
     margin-bottom: 15px;
 }
-.card h3 { margin-top: 10px; font-weight: 600; color: #0a4da2; }
-.card p { padding: 0 15px 15px; }
+.card h3 {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #0a4da2;
+}
 
-/* Contact */
+/* CONTACT */
 .contact-center { text-align: center; }
 .contact-center p { margin-top: 12px; }
 .contact-center i { color: #0a4da2; margin-right: 10px; }
@@ -123,14 +126,21 @@ h2.section-title {
 }
 .contact-center .btn-secondary:hover { background-color: #083f82; }
 
-/* Footer */
-footer { background-color: #0a4da2; color: white; text-align: center; padding: 24px; font-size: 14px; }
+/* FOOTER */
+footer {
+    background-color: #0a4da2;
+    color: white;
+    text-align: center;
+    padding: 24px;
+    font-size: 14px;
+}
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     section { padding: 60px 20px; }
     .hero h1 { font-size: 36px; }
     .hero p { font-size: 18px; }
+    .hero-text { padding: 20px 25px; }
 }
 </style>
 </head>
@@ -142,7 +152,8 @@ footer { background-color: #0a4da2; color: white; text-align: center; padding: 2
     <nav>
         <a href="#about">About</a>
         <a href="#products">Products</a>
-        <a href="#trade">Global Trade</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#logistics">Logistics</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
@@ -165,26 +176,31 @@ footer { background-color: #0a4da2; color: white; text-align: center; padding: 2
     <h2 class="section-title">Product Categories</h2>
     <div class="grid-cards">
         <div class="card">
-            <img src="https://picsum.photos/id/1025/400/240" alt="Diagnostic & Monitoring Systems">
+            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" alt="Diagnostic & Monitoring Systems">
             <h3>Diagnostic & Monitoring Systems</h3>
             <p>High‑precision imaging and patient monitoring systems for clinical environments.</p>
         </div>
         <div class="card">
-            <img src="https://picsum.photos/id/1041/400/240" alt="Clinical Tools & Instruments">
+            <img src="https://images.unsplash.com/photo-1588776814540-1b6f1bb4f8a3?auto=format&fit=crop&w=400&q=80" alt="Clinical Tools & Instruments">
             <h3>Clinical Tools & Instruments</h3>
             <p>Professional surgical instruments and procedural devices with regulatory certification.</p>
         </div>
         <div class="card">
-            <img src="https://picsum.photos/id/1059/400/240" alt="Hospital & Support Supplies">
+            <img src="https://images.unsplash.com/photo-1588776814540-2a7a6f4b7b2c?auto=format&fit=crop&w=400&q=80" alt="Hospital & Support Supplies">
             <h3>Hospital & Support Supplies</h3>
             <p>Consumables, PPE, and support devices tailored to healthcare facility needs.</p>
         </div>
     </div>
 </section>
 
-<section id="trade">
-    <h2 class="section-title">Global Trade Network</h2>
-    <p>We operate across Asia, Europe, the Middle East, Africa, and the Americas, ensuring compliance with international medical standards and regulations.</p>
+<section id="compliance">
+    <h2 class="section-title">Compliance</h2>
+    <p>All products distributed comply with FDA, CE, and other international medical standards, ensuring safe and traceable deployment pathways.</p>
+</section>
+
+<section id="logistics">
+    <h2 class="section-title">Global Logistics</h2>
+    <p>We coordinate cross‑border documentation, fulfillment, and supply chain operations to meet institutional requirements.</p>
 </section>
 
 <section id="contact">
@@ -200,6 +216,17 @@ footer { background-color: #0a4da2; color: white; text-align: center; padding: 2
 <footer>
     © 2026 GlobalMed Trade. All Rights Reserved.
 </footer>
+
+<script>
+// Optional: animate sections on scroll
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100) sec.classList.add('show');
+  });
+});
+</script>
 
 </body>
 </html>
