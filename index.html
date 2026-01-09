@@ -47,7 +47,7 @@ nav a:hover { color: #82b1ff; }
 }
 .hero-text {
     display: inline-block;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.25); /* reduced opacity to show image */
     padding: 30px 40px;
     border-radius: 10px;
 }
@@ -71,7 +71,11 @@ section {
     max-width: 1200px;
     margin: auto;
     scroll-margin-top: 100px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+section.show { opacity: 1; transform: translateY(0); }
 h2.section-title { font-size: 32px; color: #0a4da2; margin-bottom: 28px; font-weight: 700; }
 
 /* IMAGE CARDS */
@@ -171,17 +175,17 @@ footer {
     <h2 class="section-title">Product Categories</h2>
     <div class="grid-cards">
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1588776814540-2a7a6f4b7b2c?auto=format&fit=crop&w=400&q=80" alt="Diagnostic & Monitoring Systems">
+            <img src="https://images.unsplash.com/photo-1597764690352-4d3ed62d8cf7?auto=format&fit=crop&w=400&q=80" alt="Diagnostic & Monitoring Systems">
             <h3>Diagnostic & Monitoring Systems</h3>
             <p>High‑precision imaging and patient monitoring systems for clinical environments.</p>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1604079621715-9aa13c5cb6c2?auto=format&fit=crop&w=400&q=80" alt="Clinical Tools & Instruments">
+            <img src="https://images.unsplash.com/photos/a-machine-with-a-screen-Lov8B73hEl0?auto=format&fit=crop&w=400&q=80" alt="Clinical Tools & Instruments">
             <h3>Clinical Tools & Instruments</h3>
             <p>Professional surgical instruments and procedural devices with regulatory certification.</p>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1588776812811-7b1f0f5a6f50?auto=format&fit=crop&w=400&q=80" alt="Hospital & Support Supplies">
+            <img src="https://media.istockphoto.com/id/1589934844/photo/female-doctor-giving-medical-oxygen-to-her-patient-in-medical-examination-room.jpg?b=1&s=170667a&w=0&k=20&c=cJvS3_GOrW6vRj9uvkX2pKnC0tA0-j4-7TGKJ6dX9uA=" alt="Hospital & Support Supplies">
             <h3>Hospital & Support Supplies</h3>
             <p>Consumables, PPE, and support devices tailored to healthcare facility needs.</p>
         </div>
