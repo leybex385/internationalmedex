@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlobalMed Trade | International Medical Equipment</title>
+
     <style>
         body {
             margin: 0;
@@ -11,6 +12,7 @@
             background-color: #f5f7fa;
             color: #333;
         }
+
         header {
             background-color: #0b5ed7;
             color: white;
@@ -19,45 +21,73 @@
             justify-content: space-between;
             align-items: center;
         }
+
         nav a {
             color: white;
             margin-left: 20px;
             text-decoration: none;
             font-weight: bold;
         }
+
         nav a:hover {
             text-decoration: underline;
         }
-        <section class="hero">
-  <h1>International Medical Equipment Trading Company</h1>
-  <p>
-    Supplying certified medical equipment and hospital supplies
-    to healthcare providers worldwide.
-  </p>
-  <a href="#contact" class="btn">Request a Quote</a>
-</section>
 
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+            url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3') center/cover;
+            color: white;
+            padding: 140px 20px;
+            text-align: center;
         }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 32px;
+            background: #0b5ed7;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
         section {
             padding: 60px 40px;
             max-width: 1200px;
             margin: auto;
         }
+
         h2 {
             color: #0b5ed7;
             margin-bottom: 20px;
         }
+
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
+
         .card {
             background: white;
             padding: 25px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
+
         footer {
             background-color: #0b5ed7;
             color: white;
@@ -65,37 +95,8 @@
             padding: 20px;
         }
     </style>
-    .hero {
-  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-  url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3') center/cover;
-  color: white;
-  padding: 140px 20px;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 20px;
-  max-width: 700px;
-  margin: auto;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 14px 32px;
-  background: #0b5ed7;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
 </head>
+
 <body>
 
 <header>
@@ -108,10 +109,15 @@
     </nav>
 </header>
 
-<div class="hero">
-    <h1>International Medical Equipment Trading</h1>
-    <p>Supplying certified, high-quality medical equipment to hospitals, clinics, and distributors worldwide.</p>
-</div>
+<!-- HERO -->
+<section class="hero">
+    <h1>International Medical Equipment Trading Company</h1>
+    <p>
+        Supplying certified medical equipment and hospital supplies
+        to healthcare providers worldwide.
+    </p>
+    <a href="#contact" class="btn">Request a Quote</a>
+</section>
 
 <section id="about">
     <h2>About Us</h2>
@@ -148,16 +154,4 @@
     </p>
 </section>
 
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: info@globalmedtrade.com</p>
-    <p>Phone: +1 (000) 123-4567</p>
-    <p>Address: International Trade Center, Global City</p>
-</section>
-
-<footer>
-    <p>© 2026 GlobalMed Trade. All Rights Reserved.</p>
-</footer>
-
-</body>
-</html>
+<section id="contact"
