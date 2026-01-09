@@ -41,7 +41,6 @@ nav a:hover { color: #82b1ff; }
 /* HERO */
 .hero {
     background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=90') center/cover no-repeat;
-    background-size: cover;
     color: white;
     padding: 160px 20px 140px;
     text-align: center;
@@ -72,11 +71,7 @@ section {
     max-width: 1200px;
     margin: auto;
     scroll-margin-top: 100px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-section.show { opacity: 1; transform: translateY(0); }
 h2.section-title { font-size: 32px; color: #0a4da2; margin-bottom: 28px; font-weight: 700; }
 
 /* IMAGE CARDS */
@@ -176,12 +171,12 @@ footer {
     <h2 class="section-title">Product Categories</h2>
     <div class="grid-cards">
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" alt="Diagnostic & Monitoring Systems">
+            <img src="https://images.unsplash.com/photo-1588776814540-2a7a6f4b7b2c?auto=format&fit=crop&w=400&q=80" alt="Diagnostic & Monitoring Systems">
             <h3>Diagnostic & Monitoring Systems</h3>
             <p>High‑precision imaging and patient monitoring systems for clinical environments.</p>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1588776813280-5f1eeb6a88a3?auto=format&fit=crop&w=400&q=80" alt="Clinical Tools & Instruments">
+            <img src="https://images.unsplash.com/photo-1604079621715-9aa13c5cb6c2?auto=format&fit=crop&w=400&q=80" alt="Clinical Tools & Instruments">
             <h3>Clinical Tools & Instruments</h3>
             <p>Professional surgical instruments and procedural devices with regulatory certification.</p>
         </div>
@@ -192,7 +187,6 @@ footer {
         </div>
     </div>
 </section>
-
 
 <section id="compliance">
     <h2 class="section-title">Compliance</h2>
@@ -217,17 +211,6 @@ footer {
 <footer>
     © 2026 GlobalMed Trade. All Rights Reserved.
 </footer>
-
-<script>
-// Optional: animate sections on scroll
-const sections = document.querySelectorAll('section');
-window.addEventListener('scroll', () => {
-  sections.forEach(sec => {
-    const rect = sec.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 100) sec.classList.add('show');
-  });
-});
-</script>
 
 </body>
 </html>
