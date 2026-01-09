@@ -12,23 +12,24 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <style>
-/* RESET */
+/* RESET & BASIC */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Roboto', sans-serif; background-color: #f9fafc; color: #333; scroll-behavior: smooth; }
+body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; background: #f9fafc; color: #333; }
 
 /* HEADER */
 header {
-    background-color: #0a4da2; /* deep blue */
+    background-color: #0a4da2; /* deep professional blue */
     color: white;
-    padding: 20px 40px;
+    padding: 20px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-header h2 { font-size: 24px; font-weight: 700; }
+header h2 { font-size: 26px; font-weight: 700; }
 nav a {
     color: white;
     margin-left: 25px;
@@ -37,7 +38,7 @@ nav a {
     position: relative;
     transition: color 0.3s;
 }
-nav a:hover { color: #5ac8fa; } /* Zoom-like hover */
+nav a:hover { color: #5ac8fa; }
 nav a::after {
     content: '';
     display: block;
@@ -50,75 +51,66 @@ nav a:hover::after { width: 100%; }
 
 /* HERO SECTION */
 .hero {
-    background: linear-gradient(rgba(10,77,162,0.85), rgba(10,77,162,0.85)),
-                url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3') center/cover no-repeat;
+    background: linear-gradient(rgba(10,77,162,0.7), rgba(10,77,162,0.7)),
+                url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     color: white;
-    padding: 160px 20px 100px 20px;
+    padding: 160px 20px 120px 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.hero h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-.hero p {
-    font-size: 20px;
-    max-width: 700px;
-    margin: auto;
-    line-height: 1.6;
-}
+.hero h1 { font-size: 50px; font-weight: 700; margin-bottom: 20px; line-height: 1.2; }
+.hero p { font-size: 22px; max-width: 700px; margin: auto; line-height: 1.6; }
 .btn {
     display: inline-block;
     margin-top: 30px;
-    padding: 14px 36px;
+    padding: 16px 40px;
     background: #5ac8fa;
     color: white;
     font-weight: 700;
     text-decoration: none;
-    border-radius: 6px;
-    transition: background 0.3s;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.3s;
 }
-.btn:hover { background: #3db0e0; }
+.btn:hover { background: #3db0e0; transform: translateY(-2px); }
 
 /* SECTIONS */
 section {
-    padding: 80px 40px;
+    padding: 80px 50px;
     max-width: 1200px;
     margin: auto;
     scroll-margin-top: 100px;
 }
 h2 {
     color: #0a4da2;
-    font-size: 32px;
+    font-size: 36px;
     margin-bottom: 40px;
 }
 
-/* CARDS */
+/* CARD LAYOUT */
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 .card {
     background: white;
-    padding: 30px 20px;
+    padding: 35px 25px;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.15);
 }
 .card i {
     color: #0a4da2;
     margin-bottom: 15px;
 }
-.card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
+.card h3 { font-size: 22px; margin-bottom: 12px; }
 
 /* CONTACT */
 .contact-info {
@@ -126,27 +118,22 @@ h2 {
     margin: auto;
     text-align: center;
 }
-.contact-info p {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-.contact-info i {
-    color: #0a4da2;
-    margin-right: 10px;
-}
+.contact-info p { margin-bottom: 18px; font-size: 18px; display: flex; align-items: center; justify-content: center; }
+.contact-info i { color: #0a4da2; margin-right: 10px; }
+.contact-info .btn { margin-top: 20px; }
 
 /* FOOTER */
 footer {
     background-color: #0a4da2;
     color: white;
     text-align: center;
-    padding: 25px;
+    padding: 30px;
     font-size: 14px;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    header { flex-direction: column; align-items: flex-start; }
+    header { flex-direction: column; align-items: flex-start; padding: 20px 30px; }
     nav { margin-top: 10px; }
     .hero h1 { font-size: 36px; }
     .hero p { font-size: 18px; }
