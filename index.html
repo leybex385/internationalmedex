@@ -111,8 +111,19 @@ h2.section-title { font-size: 32px; color: #0a4da2; margin-bottom: 28px; font-we
     padding: 14px 36px;
     font-size: 17px;
     font-weight: 600;
-    margin-top: 25px; /* ADD THIS LINE */
+    margin-top: 25px;
     transition: transform 0.3s, box-shadow 0.3s;
+    
+    /* Fix link colors */
+    color: white;            /* text color */
+    text-decoration: none;   /* remove underline */
+}
+
+.contact-center .btn-secondary:visited,
+.contact-center .btn-secondary:active,
+.contact-center .btn-secondary:focus {
+    color: white;            /* keep white on click, visited, or focus */
+    text-decoration: none;
 }
 
 .contact-center .btn-secondary:hover { background-color: #083f82; }
