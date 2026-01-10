@@ -70,7 +70,7 @@ nav a:hover::after {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 80px 20px;  /* control top/bottom spacing */
+    padding: 80px 0; /* top/bottom spacing only, no left/right padding */
     background-color: #000; /* fallback color if video fails */
     overflow: hidden;
 }
@@ -88,16 +88,21 @@ nav a:hover::after {
 }
 
 .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 12px; /* optional: rounded corners */
+    object-fit: cover; /* this makes it cover fully without stretching */
+    z-index: -1;       /* keeps it behind the text */
 }
 
 .hero-text {
-    position: relative;  /* stay above video */
+    position: relative;
+    text-align: center;
     z-index: 1;
-    max-width: 700px; /* limit text width */
+    max-width: 900px; /* optional: prevent text from stretching too wide */
+    padding: 0 20px;  /* small side padding for mobile */
     color: white;
 }
 
