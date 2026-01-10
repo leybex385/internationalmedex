@@ -10,6 +10,17 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Inter', sans-serif; color: #333; scroll-behavior: smooth; background-color: #fff; }
+    /* ================= SECTIONS FADE IN ON SCROLL ================= */
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* HEADER */
 header {
@@ -25,8 +36,32 @@ header {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 header h1 { font-size: 24px; font-weight: 700; }
-nav a { color: white; margin-left: 24px; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-nav a:hover { color: #82b1ff; }
+nav a {
+    color: white;
+    margin-left: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #ffd600;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+    background: #ffd600;
+}
 
 /* HERO */
 .hero {
@@ -73,7 +108,9 @@ nav a:hover { color: #82b1ff; }
     border-radius: 6px;
     transition: background 0.3s, color 0.3s;
 }
-.btn-primary:hover { background-color: #e6c200; color: #000; }
+.btn-primary:hover, .btn-secondary:hover {
+    transform: scale(1.05);
+}
 
 /* SECTIONS */
 section { padding: 80px 50px; max-width: 1200px; margin: auto; scroll-margin-top: 100px; }
@@ -86,24 +123,33 @@ h2.section-title { font-size: 32px; color: #0a4da2; margin-bottom: 28px; font-we
     gap: 28px;
 }
 .card {
-    background: #f7f8fa;
-    border-radius: 10px;
+    background: #ffffff;
+    border-radius: 12px;
     border: 1px solid #dee2e6;
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
+
 .card img {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    margin-bottom: 15px;
+    transition: transform 0.5s ease;
 }
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
 .card h3 {
     margin-top: 10px;
     font-weight: 600;
@@ -222,6 +268,19 @@ footer {
 <footer>
     © 2026 GlobalMed Trade. All Rights Reserved.
 </footer>
+    <script>
+const sections = document.querySelectorAll('section');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
